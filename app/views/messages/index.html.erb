@@ -2,6 +2,10 @@
   <div>
     <p>【メールアドレス】 <%= message.user.email %></p>
     <p>【内容】 <%= message.content %></p>
+    <p>
+      <%= link_to "削除", message_path(message), method: :delete, data: { confirm: "削除しますか？" } %>
+      <%= link_to "編集", edit_message_path(message) %>
+    </p>
   </div>
   <hr>
 <% end %>
