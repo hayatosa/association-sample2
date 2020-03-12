@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.includes(:user)
+    @liked_message_ids = current_user.likes.pluck(:message_id)
   end
 
   def new

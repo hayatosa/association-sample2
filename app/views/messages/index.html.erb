@@ -5,6 +5,13 @@
     <p>
       <%= link_to "削除", message_path(message), method: :delete, data: { confirm: "削除しますか？" } %>
       <%= link_to "編集", edit_message_path(message) %>
+
+      <% if @liked_message_ids.include?(message.id) %>
+        <%= link_to '★', message_likes_path(message), method: :delete %>
+      <% else %>
+        <%= link_to '☆', message_likes_path(message), method: :post %>
+      <% end %>
+        
     </p>
   </div>
   <hr>
